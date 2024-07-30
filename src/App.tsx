@@ -1,17 +1,24 @@
+import React from "react";
 import { maze } from "./images/index.ts";
 import "./App.css";
 
-const appName = "Назва застосунку";
+// Define a TypeScript interface for Button props
+interface ButtonProps {
+  text: string;
+  iconClass: string;
+  iconColor: string;
+}
 
-// Button Component
-const Button = ({ text, iconClass, iconColor }) => (
+// Button Component with typed props
+const Button: React.FC<ButtonProps> = ({ text, iconClass, iconColor }) => (
   <button className="w-full py-3 bg-[#444444] text-white font-normal rounded-xl flex items-center border-2 border-[#601ca3]">
     <i className={`${iconClass} h-6 w-6 ml-2 ${iconColor}`}></i>
-    <span className="relative left-16">{text}</span>
+    <span className="ml-4 flex-1 text-center">{text}</span>
   </button>
 );
 
-function App() {
+const App: React.FC = () => {
+  const appName = "Назва застосунку";
   return (
     <div className="flex justify-center z-10 main">
       <div className="w-full text-white h-screen font-bold flex flex-col max-w-xl top-glow">
@@ -57,6 +64,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
