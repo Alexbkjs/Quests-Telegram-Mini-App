@@ -13,7 +13,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ text, iconClass, iconColor }) => (
   <button className="w-full py-3 bg-[#444444] text-white font-normal rounded-xl flex items-center border-2 border-[#601ca3]">
     <i className={`${iconClass} h-6 w-6 ml-2 ${iconColor}`}></i>
-    <span className="ml-4 flex-1 text-center">{text}</span>
+    <span className="relative left-16 text-center">{text}</span>
   </button>
 );
 
