@@ -21,3 +21,17 @@ html {
     rgba(20, 20, 21, 1) 100%
   );
 }
+
+.custom-border-thin {
+  border-width: 1px;
+}
+
+.custom-border-bold {
+  border-width: 3px;
+}
+.footer {
+  margin-top: -10px;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
