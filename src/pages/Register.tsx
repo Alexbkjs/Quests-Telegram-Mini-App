@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import DynamicForm from "../components/DynamicForm";
 import { phoneFormInputs, emailFormInputs } from "../utils/formInputs";
+import DividerWithText from "../components/DividerWithText";
+import SocialButtons from "../components/SocialButtons";
+import PolicyTerms from "../components/PolicyTerms";
 
 const Register: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<"phone" | "email">(
@@ -61,6 +64,10 @@ const Register: React.FC = () => {
             />
           )}
         </div>
+        <DividerWithText text="або" />
+        {/* ButtonSet Component */}
+        <SocialButtons />
+        <PolicyTerms />
       </div>
     </div>
   );
