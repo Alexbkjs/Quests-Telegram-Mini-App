@@ -1,5 +1,6 @@
 .main {
   background: #141415;
+  min-width: 320px;
 }
 .top-glow {
   width: 100%;

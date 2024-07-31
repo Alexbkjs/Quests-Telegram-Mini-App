@@ -34,6 +34,6 @@ export const emailFormInputs: FormInput[] = [
   {
     type: "password",
     name: "password",
-    placeholder: "Password",
+    placeholder: "Пароль",
   },
 ];

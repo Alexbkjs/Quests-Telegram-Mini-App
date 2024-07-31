@@ -1,22 +1,22 @@
 import React from "react";
 import Button from "./Button";
 import GoogleIcon from "../icons/GoogleIcon";
-import FacebookIcon from "../icons/FacebookIcon"; // Assume you have these components
-import AppleIcon from "../icons/AppleIcon"; // Assume you have these components
+import FacebookIcon from "../icons/FacebookIcon";
+import AppleIcon from "../icons/AppleIcon";
 
 const SocialButtons: React.FC = () => {
   const buttonConfigs = [
     {
       text: "Continue with Google",
-      iconComponent: <GoogleIcon />, // Pass the SVG component here
+      iconComponent: <GoogleIcon />,
     },
     {
       text: "Continue with Facebook",
-      iconComponent: <FacebookIcon />, // Pass the SVG component here
+      iconComponent: <FacebookIcon />,
     },
     {
       text: "Continue with Apple",
-      iconComponent: <AppleIcon />, // Pass the SVG component here
+      iconComponent: <AppleIcon />,
     },
   ];
 

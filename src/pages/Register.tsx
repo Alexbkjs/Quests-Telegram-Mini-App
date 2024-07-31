@@ -59,7 +59,7 @@ const Register: React.FC = () => {
           {selectedOption === "email" && (
             <DynamicForm
               inputs={emailFormInputs}
-              submitText="Register"
+              submitText="Зареєструватись"
               onSubmit={handleFormSubmit}
             />
           )}
