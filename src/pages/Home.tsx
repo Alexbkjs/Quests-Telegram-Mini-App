@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({ text, iconClass, iconColor }) => (
 const Home: React.FC = () => {
   const appName = "Назва застосунку";
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center main">
+    <div className="min-h-screen flex flex-col items-center justify-center main ">
       <div className="w-full text-white font-bold flex flex-col max-w-xl top-glow">
         <div className="flex justify-center m-3 mt-16">
           <div className="ml-3 image-container">
