@@ -44,8 +44,8 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 name={input.name}
                 value={formData[input.name] || ""}
                 onChange={handleChange}
-                className="rounded-xl w-1/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400 appearance-none"
-                style={{ backgroundColor: "transparent", color: "white" }}
+                className="rounded-xl w-1/4 px-2 py-3 border-2 border-[#6527a4] bg-transparent placeholder-gray-500 "
+                style={{ backgroundColor: "transparent", color: "gray" }}
               >
                 <option value="" disabled>
                   {input.placeholder}
@@ -62,7 +62,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 placeholder={inputs[index + 1].placeholder}
                 value={formData[inputs[index + 1].name] || ""}
                 onChange={handleChange}
-                className="rounded-xl w-3/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
+                className="rounded-xl w-3/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
                 style={{ backgroundColor: "transparent", color: "white" }}
               />
             </div>
@@ -76,8 +76,11 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 placeholder={input.placeholder}
                 value={formData[input.name] || ""}
                 onChange={handleChange}
-                className="rounded-xl w-full px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
-                style={{ backgroundColor: "transparent", color: "white" }}
+                className="rounded-xl w-full px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
+                style={{
+                  backgroundColor: "transparent",
+                  color: "white",
+                }}
               />
             </div>
           );
@@ -88,7 +91,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
 
       <button
         type="submit"
-        className="rounded-xl w-full  py-3 mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+        className="rounded-xl w-full  py-3 mt-4 bg-gradient-to-r from-purple-700 to-purple-600 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
       >
         {submitText}
       </button>
