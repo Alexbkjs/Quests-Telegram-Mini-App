@@ -1,22 +1,22 @@
 import React from "react";
 import Button from "./Button";
+import GoogleIcon from "../icons/GoogleIcon";
+import FacebookIcon from "../icons/FacebookIcon"; // Assume you have these components
+import AppleIcon from "../icons/AppleIcon"; // Assume you have these components
 
 const SocialButtons: React.FC = () => {
   const buttonConfigs = [
     {
       text: "Continue with Google",
-      iconClass: "fab fa-google",
-      iconColor: "text-red-400",
+      iconComponent: <GoogleIcon />, // Pass the SVG component here
     },
     {
       text: "Continue with Facebook",
-      iconClass: "fab fa-facebook-f",
-      iconColor: "text-blue-400",
+      iconComponent: <FacebookIcon />, // Pass the SVG component here
     },
     {
       text: "Continue with Apple",
-      iconClass: "fab fa-apple",
-      iconColor: "text-white-700",
+      iconComponent: <AppleIcon />, // Pass the SVG component here
     },
   ];
 
@@ -26,8 +26,7 @@ const SocialButtons: React.FC = () => {
         <Button
           key={index}
           text={button.text}
-          iconClass={button.iconClass}
-          iconColor={button.iconColor}
+          iconComponent={button.iconComponent}
         />
       ))}
     </div>
