@@ -1,0 +1,81 @@
+import React, { useState } from "react";
+
+interface InputField {
+  name: string;
+  placeholder: string;
+  type?: string;
+  options?: string[]; // For select fields
+}
+
+interface DynamicFormProps {
+  inputs: InputField[];
+  submitText: string;
+  onSubmit: (formData: Record<string, string>) => void;
+}
+
+const DynamicForm: React.FC<DynamicFormProps> = ({
+  inputs,
+  submitText,
+  onSubmit,
+}) => {
+  const [formData, setFormData] = useState<Record<string, string>>(
+    inputs.reduce((acc, input) => ({ ...acc, [input.name]: "" }), {})
+  );
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {inputs.map((input, index) => (
+        <div key={index}>
+          {input.type === "select" ? (
+            <select
+              name={input.name}
+              value={formData[input.name] || ""}
+              onChange={handleChange}
+              className="rounded-xl w-full px-4 py-2 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400 appearance-none"
+              style={{ height: "2.5rem", fontSize: "1rem" }} // Adjust as needed
+            >
+              <option value="" disabled>
+                {input.placeholder}
+              </option>
+              {input.options?.map((option, i) => (
+                <option key={i} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              name={input.name}
+              type={input.type || "text"}
+              placeholder={input.placeholder}
+              value={formData[input.name] || ""}
+              onChange={handleChange}
+              className="rounded-xl w-full px-4 py-2 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
+            />
+          )}
+        </div>
+      ))}
+
+      <button
+        type="submit"
+        className="rounded-xl w-full py-2 mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+      >
+        {submitText}
+      </button>
+    </form>
+  );
+};
+
+export default DynamicForm;
