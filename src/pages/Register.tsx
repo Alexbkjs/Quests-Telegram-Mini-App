@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import DynamicForm from "../components/DynamicForm";
-
-// Define the type for form inputs
-interface FormInput {
-  type: "text" | "email" | "password" | "select";
-  name: string;
-  placeholder: string;
-  options?: string[]; // For select fields
-}
+import { phoneFormInputs, emailFormInputs } from "../utils/formInputs";
+import DividerWithText from "../components/DividerWithText";
+import SocialButtons from "../components/SocialButtons";
+import PolicyTerms from "../components/PolicyTerms";
 
 const Register: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<"phone" | "email">(
@@ -24,44 +20,11 @@ const Register: React.FC = () => {
     // Handle form submission logic here
   };
 
-  // Define form inputs based on the selected option
-  const phoneFormInputs: FormInput[] = [
-    {
-      type: "select",
-      name: "countryCode",
-      placeholder: "Country Code",
-      options: ["+1", "+2", "+3", "+4"], // Example country codes
-    },
-    {
-      type: "text",
-      name: "phoneNumber",
-      placeholder: "Phone Number",
-    },
-    {
-      type: "text",
-      name: "verificationCode",
-      placeholder: "Verification Code",
-    },
-  ];
-
-  const emailFormInputs: FormInput[] = [
-    {
-      type: "email",
-      name: "email",
-      placeholder: "Email",
-    },
-    {
-      type: "password",
-      name: "password",
-      placeholder: "Password",
-    },
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col main text-white ">
+    <div className="min-h-screen flex flex-col main text-white">
       <Header pageName="Реєстрація" />
-      <div className="w-full p-4 mt-16">
-        <div className="flex justify-center mb-4 mx-3">
+      <div className="w-full p-4 mt-16 sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
+        <div className="flex justify-center mt-4 mx-3">
           <div
             className={`cursor-pointer flex-1 ${
               selectedOption === "phone"
@@ -84,11 +47,11 @@ const Register: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-6">
           {selectedOption === "phone" && (
             <DynamicForm
               inputs={phoneFormInputs}
-              submitText="Register"
+              submitText="Зареєструватись"
               onSubmit={handleFormSubmit}
             />
           )}
@@ -101,6 +64,10 @@ const Register: React.FC = () => {
             />
           )}
         </div>
+        <DividerWithText text="або" />
+        {/* ButtonSet Component */}
+        <SocialButtons />
+        <PolicyTerms />
       </div>
     </div>
   );

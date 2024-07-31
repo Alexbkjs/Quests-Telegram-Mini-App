@@ -36,41 +36,59 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {inputs.map((input, index) => (
-        <div key={index}>
-          {input.type === "select" ? (
-            <select
-              name={input.name}
-              value={formData[input.name] || ""}
-              onChange={handleChange}
-              className="rounded-xl w-full px-4 py-2 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400 appearance-none"
-              style={{ height: "2.5rem", fontSize: "1rem" }} // Adjust as needed
-            >
-              <option value="" disabled>
-                {input.placeholder}
-              </option>
-              {input.options?.map((option, i) => (
-                <option key={i} value={option}>
-                  {option}
+      {inputs.map((input, index) => {
+        if (input.type === "select" && inputs[index + 1]) {
+          return (
+            <div key={index} className="flex space-x-4">
+              <select
+                name={input.name}
+                value={formData[input.name] || ""}
+                onChange={handleChange}
+                className="rounded-xl w-1/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400 appearance-none"
+                style={{ backgroundColor: "transparent", color: "white" }}
+              >
+                <option value="" disabled>
+                  {input.placeholder}
                 </option>
-              ))}
-            </select>
-          ) : (
-            <input
-              name={input.name}
-              type={input.type || "text"}
-              placeholder={input.placeholder}
-              value={formData[input.name] || ""}
-              onChange={handleChange}
-              className="rounded-xl w-full px-4 py-2 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
-            />
-          )}
-        </div>
-      ))}
+                {input.options?.map((option, i) => (
+                  <option key={i} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              <input
+                name={inputs[index + 1].name}
+                type={inputs[index + 1].type || "text"}
+                placeholder={inputs[index + 1].placeholder}
+                value={formData[inputs[index + 1].name] || ""}
+                onChange={handleChange}
+                className="rounded-xl w-3/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
+                style={{ backgroundColor: "transparent", color: "white" }}
+              />
+            </div>
+          );
+        } else if (index === 0 || inputs[index - 1].type !== "select") {
+          return (
+            <div key={index}>
+              <input
+                name={input.name}
+                type={input.type || "text"}
+                placeholder={input.placeholder}
+                value={formData[input.name] || ""}
+                onChange={handleChange}
+                className="rounded-xl w-full px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-400"
+                style={{ backgroundColor: "transparent", color: "white" }}
+              />
+            </div>
+          );
+        } else {
+          return null;
+        }
+      })}
 
       <button
         type="submit"
-        className="rounded-xl w-full py-2 mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+        className="rounded-xl w-full  py-3 mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
       >
         {submitText}
       </button>
