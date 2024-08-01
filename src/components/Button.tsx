@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   iconClass,
   iconColor,
 }) => (
-  <button className="relative w-full flex items-center py-3 bg-[#444444] text-white font-normal rounded-xl justify-center border-2 border-[#601ca3]">
+  <button className="btn relative w-full flex items-center py-3 bg-[#444444] text-white font-normal rounded-xl justify-center border-2 border-[#601ca3]">
     {iconComponent ? (
       <span className="absolute left-4">{iconComponent}</span>
     ) : (

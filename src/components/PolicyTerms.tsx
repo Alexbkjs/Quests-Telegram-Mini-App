@@ -1,9 +1,14 @@
 import React from "react";
 
-const PolicyTerms: React.FC = () => {
+// Define the props interface
+interface PolicyTermsProps {
+  className?: string;
+}
+
+const PolicyTerms: React.FC<PolicyTermsProps> = ({ className }) => {
   return (
-    <footer className="flex w-full py-24 px-4 ">
-      <p className="text-gray-500 text-[0.70rem] text-center">
+    <footer className={`flex mx-auto max-w-md ${className || ""}`}>
+      <p className="text-gray-600 mx-3 text-[0.65rem] text-center">
         Продовжуючи, ви автоматично приймаєте наші Загальні положення та умови,
         Політику конфіденційності та політику використання файлів cookie
       </p>
