@@ -3,6 +3,7 @@ export interface FormInput {
   type: "text" | "email" | "password" | "select";
   name: string;
   placeholder: string;
+  autoComplete?: string;
   options?: string[]; // For select fields
 }
 
@@ -35,6 +36,7 @@ export const emailFormInputs: FormInput[] = [
     type: "password",
     name: "password",
     placeholder: "Пароль",
+    autoComplete: "current-password",
   },
 ];
 

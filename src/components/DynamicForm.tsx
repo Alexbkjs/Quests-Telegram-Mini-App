@@ -4,6 +4,7 @@ interface InputField {
   name: string;
   placeholder: string;
   type?: string;
+  autoComplete?: string;
   options?: string[]; // For select fields
 }
 
@@ -73,6 +74,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 type={input.type || "text"}
                 placeholder={input.placeholder}
                 value={formData[input.name] || ""}
+                autoComplete={input.autoComplete || ""}
                 onChange={handleChange}
                 className="input rounded-xl w-full px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
                 style={{
