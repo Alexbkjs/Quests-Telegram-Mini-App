@@ -72,7 +72,7 @@ const Register: React.FC = () => {
           {/* ButtonSet Component */}
           <SocialButtons />
         </div>
-        <PolicyTerms />
+        <PolicyTerms className="my-28" />
       </div>
     </div>
   );

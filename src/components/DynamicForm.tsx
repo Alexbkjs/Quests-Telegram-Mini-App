@@ -31,6 +31,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    !formData.countryCode && (formData.countryCode = "+380");
     onSubmit(formData);
   };
 

@@ -37,3 +37,16 @@ export const emailFormInputs: FormInput[] = [
     placeholder: "Пароль",
   },
 ];
+
+export const emailPhoneFormInputs: FormInput[] = [
+  {
+    type: "text",
+    name: "email/phone",
+    placeholder: "Email/Номер телефону",
+  },
+  {
+    type: "password",
+    name: "password",
+    placeholder: "Пароль",
+  },
+];
