@@ -23,50 +23,55 @@ const Register: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col main text-white">
       <Header pageName="Реєстрація" />
-      <div className="w-full p-4 mt-16 sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
-        <div className="flex justify-center mt-4 mx-3">
-          <div
-            className={`cursor-pointer flex-1 ${
-              selectedOption === "phone"
-                ? "text-white-500 border-b-4 border-white-500"
-                : "text-gray-400 border-b-4 border-gray-400"
-            }`}
-            onClick={() => handleOptionClick("phone")}
-          >
-            Номер телефону
-          </div>
-          <div
-            className={`cursor-pointer flex-1 ${
-              selectedOption === "email"
-                ? "text-white-500 border-b-4 border-white-500"
-                : "text-gray-400 border-b-4 border-gray-400"
-            }`}
-            onClick={() => handleOptionClick("email")}
-          >
-            Email
-          </div>
-        </div>
+      <div className="w-full p-4 mt-16 sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
+        <div className="mx-auto max-w-md">
+          <div>
+            <div className="flex justify-center mt-4 mx-3">
+              <div
+                className={`cursor-pointer flex-1 ${
+                  selectedOption === "phone"
+                    ? "text-white-500 border-b-4 border-white-500"
+                    : "text-gray-400 border-b-4 border-gray-400"
+                }`}
+                onClick={() => handleOptionClick("phone")}
+              >
+                Номер телефону
+              </div>
+              <div
+                className={`cursor-pointer flex-1 ${
+                  selectedOption === "email"
+                    ? "text-white-500 border-b-4 border-white-500"
+                    : "text-gray-400 border-b-4 border-gray-400"
+                }`}
+                onClick={() => handleOptionClick("email")}
+              >
+                Email
+              </div>
+            </div>
 
-        <div className="mt-6">
-          {selectedOption === "phone" && (
-            <DynamicForm
-              inputs={phoneFormInputs}
-              submitText="Зареєструватись"
-              onSubmit={handleFormSubmit}
-            />
-          )}
+            <div className="mt-6">
+              {selectedOption === "phone" && (
+                <DynamicForm
+                  inputs={phoneFormInputs}
+                  submitText="Зареєструватись"
+                  onSubmit={handleFormSubmit}
+                />
+              )}
 
-          {selectedOption === "email" && (
-            <DynamicForm
-              inputs={emailFormInputs}
-              submitText="Зареєструватись"
-              onSubmit={handleFormSubmit}
-            />
-          )}
+              {selectedOption === "email" && (
+                <DynamicForm
+                  inputs={emailFormInputs}
+                  submitText="Зареєструватись"
+                  onSubmit={handleFormSubmit}
+                />
+              )}
+            </div>
+            <DividerWithText text="або" />
+          </div>
+
+          {/* ButtonSet Component */}
+          <SocialButtons />
         </div>
-        <DividerWithText text="або" />
-        {/* ButtonSet Component */}
-        <SocialButtons />
         <PolicyTerms />
       </div>
     </div>
