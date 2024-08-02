@@ -21,14 +21,14 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col main text-white">
+    <div className="min-h-screen flex flex-col main text-white ">
       <Header pageName="Реєстрація" />
       <div className="w-full p-4 mt-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
         <div
-          className="mx-auto max-w-md"
-          style={{
-            marginTop: "8vh",
-          }}
+          className="mx-auto max-w-md "
+          // style={{
+          //   marginTop: "8vh",
+          // }}
         >
           <div>
             <div className="flex justify-center mt-4 mx-3">

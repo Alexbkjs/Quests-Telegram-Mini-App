@@ -46,7 +46,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 name={input.name}
                 value={formData[input.name] || ""}
                 onChange={handleChange}
-                className="select rounded-xl w-1/4 px-2 py-3 border-2 border-[#6527a4] bg-transparent placeholder-gray-500 "
+                className="select rounded-xl w-1/4 mx-auto my-auto border-2 border-[#6527a4] bg-transparent placeholder-gray-500 "
                 style={{ backgroundColor: "transparent", color: "gray" }}
               >
                 {input.options?.map((option, i) => (
@@ -61,7 +61,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 placeholder={inputs[index + 1].placeholder}
                 value={formData[inputs[index + 1].name] || ""}
                 onChange={handleChange}
-                className="input rounded-xl w-3/4 px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
+                className="input rounded-xl w-3/4 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
                 style={{ backgroundColor: "transparent", color: "white" }}
               />
             </div>
@@ -76,7 +76,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
                 value={formData[input.name] || ""}
                 autoComplete={input.autoComplete || ""}
                 onChange={handleChange}
-                className="input rounded-xl w-full px-4 py-3 border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
+                className="input rounded-xl w-full border-2 border-[#6527a4] bg-transparent text-white placeholder-gray-500"
                 style={{
                   backgroundColor: "transparent",
                   color: "white",
@@ -91,7 +91,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
 
       <button
         type="submit"
-        className="btn rounded-xl w-full  py-3 mt-4 bg-gradient-to-r from-purple-700 to-purple-600 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+        className="btn rounded-xl w-full  bg-gradient-to-r from-purple-800 to-purple-700 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
       >
         {submitText}
       </button>
