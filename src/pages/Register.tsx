@@ -23,8 +23,13 @@ const Register: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col main text-white">
       <Header pageName="Реєстрація" />
-      <div className="w-full p-4 mt-16 sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
-        <div className="mx-auto max-w-md">
+      <div className="w-full p-4 mt-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
+        <div
+          className="mx-auto max-w-md"
+          style={{
+            marginTop: "10vh",
+          }}
+        >
           <div>
             <div className="flex justify-center mt-4 mx-3">
               <div
@@ -72,8 +77,8 @@ const Register: React.FC = () => {
           {/* ButtonSet Component */}
           <SocialButtons />
         </div>
-        <PolicyTerms className="my-28" />
       </div>
+      <PolicyTerms className="" />
     </div>
   );
 };

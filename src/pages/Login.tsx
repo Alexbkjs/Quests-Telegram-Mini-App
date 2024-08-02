@@ -12,9 +12,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col main text-white">
+    <div className="min-h-screen flex flex-col main text-white flex-grow">
       <Header pageName="Вхід" />
-      <div className="w-full p-4 mt-24 sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
+      <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto ">
         <div className="mx-auto max-w-md">
           <DynamicForm
             inputs={emailPhoneFormInputs}
@@ -27,9 +27,8 @@ const Login: React.FC = () => {
           {/* ButtonSet Component */}
           <SocialButtons />
         </div>
-
-        <PolicyTerms className="my-36" />
       </div>
+      <PolicyTerms className="" />
     </div>
   );
 };

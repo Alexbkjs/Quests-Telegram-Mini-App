@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SocialButtons from "../components/SocialButtons";
 
 const Home: React.FC = () => {
-  const appName = "Назва застосунку";
+  const appName = "IT Academy RPG";
 
   return (
     <div className="flex flex-col min-h-screen items-center justify-center main">
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           <p className="text-[20px] font-normal tracking-[0.08em]">{appName}</p>
         </div>
 
-        <div className="flex flex-col space-y-3 p-6 w-full max-w-md mx-auto mt-4">
+        <div className="flex flex-col space-y-3 p-6 w-full max-w-md mx-auto">
           {/* Button 1: Text Only, Custom Gradient Background */}
           <Link
             to="/register"
