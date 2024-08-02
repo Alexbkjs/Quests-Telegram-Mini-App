@@ -3,7 +3,7 @@
   min-width: 320px;
 }
 .top-glow {
-  width: 100%;
+  width: 100vh;
   height: 50%;
   background: rgb(20, 20, 21);
   background: linear-gradient(

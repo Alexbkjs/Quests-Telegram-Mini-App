@@ -8,8 +8,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen items-center justify-center main">
-      <div className="w-full text-white font-bold flex flex-col flex-grow max-w-xl top-glow">
-        <div className="flex justify-center mt-48">
+      <div className="w-full text-white font-bold flex flex-col flex-grow  top-glow">
+        <div className="flex justify-center my-auto">
           <div className="ml-3 image-container">
             <img src={maze} alt="maze" />
           </div>
