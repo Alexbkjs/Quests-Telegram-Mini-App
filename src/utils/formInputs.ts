@@ -43,7 +43,7 @@ export const emailFormInputs: FormInput[] = [
 export const emailPhoneFormInputs: FormInput[] = [
   {
     type: "text",
-    name: "email/phone",
+    name: "emailPhone",
     placeholder: "Email/Номер телефону",
   },
   {

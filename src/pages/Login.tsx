@@ -5,10 +5,19 @@ import DividerWithText from "../components/DividerWithText";
 import SocialButtons from "../components/SocialButtons";
 import PolicyTerms from "../components/PolicyTerms";
 
+import { useNavigate } from "react-router-dom";
+
 const Login: React.FC = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleFormSubmit = (formData: Record<string, string>) => {
     console.log("Form submitted with data:", formData);
-    // Handle form submission logic here
+
+    if (formData.emailPhone === "test" && formData.password === "test") {
+      navigate("/main"); // Programmatically navigate to "/main"
+    } else {
+      // Handle other cases or show error message
+    }
   };
 
   return (
