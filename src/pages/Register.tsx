@@ -27,7 +27,7 @@ const Register: React.FC = () => {
         <div
           className="mx-auto max-w-md"
           style={{
-            marginTop: "10vh",
+            marginTop: "8vh",
           }}
         >
           <div>
