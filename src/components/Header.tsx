@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({
   showSettingsIcon = false,
 }) => {
   return (
-    <div className="relative flex mt-16 mb-auto items-center justify-center w-full max-w-lg mx-auto">
+    <div className="relative flex mt-12 mb-auto items-center justify-center w-full max-w-lg mx-auto flex-grow">
       <Link to="/" className="btn btn-ghost absolute left-0 ml-6">
         <FontAwesomeIcon icon={faChevronLeft} size="lg" />
       </Link>
