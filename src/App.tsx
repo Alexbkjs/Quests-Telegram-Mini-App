@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import "./App.css";
 import MainPage from "./pages/MainPage";
+import Quests from "./pages/Quests";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<MainPage />} />
+        <Route path="/quests" element={<Quests />} />
       </Routes>
     </Router>
   );

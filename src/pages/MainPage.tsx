@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import Header from "../components/Header";
 import {
   inventory,
@@ -7,16 +8,16 @@ import {
   quests,
   settings,
   academy,
-} from "../images"; // Adjust the path to where your images are located
+} from "../images";
 
-// Define a list of items with titles and image sources
+// Define a list of items with titles, image sources, and paths
 const items = [
-  { title: "Профіль", imageSrc: profile },
-  { title: "Квести", imageSrc: quests },
-  { title: "Академія", imageSrc: academy },
-  { title: "Інвертар", imageSrc: inventory },
-  { title: "Лідерборд", imageSrc: leaderboard },
-  { title: "Налаштування", imageSrc: settings },
+  { title: "Профіль", imageSrc: profile, path: "/profile" },
+  { title: "Квести", imageSrc: quests, path: "/quests" },
+  { title: "Академія", imageSrc: academy, path: "/academy" },
+  { title: "Інвертар", imageSrc: inventory, path: "/inventory" },
+  { title: "Лідерборд", imageSrc: leaderboard, path: "/leaderboard" },
+  { title: "Налаштування", imageSrc: settings, path: "/settings" },
 ];
 
 // Helper function to generate random gradient colors
@@ -34,20 +35,16 @@ const generateRandomGradient = () => {
   return `linear-gradient(135deg, ${randomColor1} 0%, ${randomColor2} 100%)`;
 };
 
-// Small component for each item
-const SmallComponent: React.FC<{ title: string; imageSrc: string }> = ({
-  title,
-  imageSrc,
-}) => {
+// Small component for each item with a Link for navigation
+const SmallComponent: React.FC<{
+  title: string;
+  imageSrc: string;
+  path: string;
+}> = ({ title, imageSrc, path }) => {
   return (
-    <button
+    <Link
+      to={path}
       className="relative flex flex-col items-center justify-center p-2 rounded-lg transition-transform transform hover:scale-105 active:scale-95 focus:outline-none"
-      style={{
-        border: "none",
-        cursor: "pointer",
-        position: "relative",
-        boxShadow: "0 0 0 rgba(0, 0, 0, 0.3)", // Subtle shadow effect
-      }}
     >
       <div className="relative w-24 h-24 rounded-full flex items-center justify-center">
         <div
@@ -69,7 +66,7 @@ const SmallComponent: React.FC<{ title: string; imageSrc: string }> = ({
       <div className="mx-auto mt-2">
         <h3 className="text-lg font-normal text-white">{title}</h3>
       </div>
-    </button>
+    </Link>
   );
 };
 
@@ -77,7 +74,6 @@ const SmallComponent: React.FC<{ title: string; imageSrc: string }> = ({
 const MainPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col text-white flex-grow bg-[#141415]">
-      {/* Set the background color here */}
       <Header pageName="Головний екран" />
       <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
         <div className="mx-auto max-w-md">
@@ -87,6 +83,7 @@ const MainPage: React.FC = () => {
                 key={index}
                 title={item.title}
                 imageSrc={item.imageSrc}
+                path={item.path} // Pass the path to SmallComponent
               />
             ))}
           </div>
