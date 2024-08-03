@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors'
-import quests from './quests.js';
+import { quests } from './quests.js';
 
 
 

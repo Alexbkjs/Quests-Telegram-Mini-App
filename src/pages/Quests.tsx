@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import QuestCard from "../components/QuestCard";
 import axios from "axios";
-import { basic } from "../images";
 
 // Define a type for quest data
 interface Quest {
@@ -12,8 +11,6 @@ interface Quest {
   description: string;
   award: string;
 }
-
-console.log(basic);
 
 const Quests: React.FC = () => {
   // State to store quests data
@@ -29,7 +26,7 @@ const Quests: React.FC = () => {
       try {
         // Fetch quests from the API
         const response = await axios.get<Quest[]>(
-          `http://localhost:3000/api/quests?page=${page}`
+          `https://quests-express-vercel-backend.vercel.app/api/v1/quests?page=${page}`
         );
         setQuests(response.data); // Update quests state with the fetched data
       } catch (error) {
