@@ -22,7 +22,7 @@ const Home: React.FC = () => {
           {/* Button 1: Text Only, Custom Gradient Background */}
           <Link
             to="/register"
-            className="btn rounded-xl w-full  bg-gradient-to-r from-purple-700 to-purple-600 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+            className="btn rounded-xl w-full  bg-gradient-to-r from-purple-700 to-purple-600 text-white border-2 border-[#6527a4] hover:bg-gradient-to-l"
           >
             Реєстрація
           </Link>
