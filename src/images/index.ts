@@ -15,6 +15,8 @@ import reusable from "../images/quests/reusable.png";
 import adventure from "../images/quests/adventure.png";
 import routine from "../images/quests/routine.png";
 
+import loading_image from "./loading_image.webp";
+
 export {
   maze,
   inventory,
@@ -29,4 +31,5 @@ export {
   reusable,
   adventure,
   routine,
+  loading_image,
 };

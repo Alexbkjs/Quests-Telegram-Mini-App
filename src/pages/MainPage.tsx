@@ -53,7 +53,7 @@ const generateRandomGradient = () => {
 const MainPage: React.FC = () => {
   const [questsData, setQuestsData] = useState<Quest[]>([]);
   const navigate = useNavigate();
-  const pagesToLoad = 2; // Number of pages to load
+  const pagesToLoad = 1; // Number of pages to load
 
   useEffect(() => {
     const fetchQuests = async () => {

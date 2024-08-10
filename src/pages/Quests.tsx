@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import QuestCard from "../components/QuestCard";
 import axios from "axios";
+
+import "../App.css"; // Import the CSS for the spinner
 
 interface Quest {
   id: number;
@@ -16,66 +18,78 @@ const Quests: React.FC = () => {
   const location = useLocation();
   const initialQuests = location.state?.quests || [];
   const [quests, setQuests] = useState<Quest[]>(initialQuests);
-  const [displayedQuests, setDisplayedQuests] = useState<Quest[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const pageSize = 3; // Number of quests per page
-  const totalPages = Math.ceil(quests.length / pageSize);
+  const [hasMore, setHasMore] = useState(true);
+  const pageSize = 3;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (initialQuests.length === 0) {
-      const fetchQuests = async () => {
-        setLoading(true);
-        try {
-          const response = await axios.get<Quest[]>(
-            `https://quests-express-vercel-backend.vercel.app/api/v1/quests?page=1`
-          );
-          setQuests(response.data);
-        } catch (error) {
-          console.error("Error fetching quests:", error);
+    const fetchQuests = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get<Quest[]>(
+          `https://quests-express-vercel-backend.vercel.app/api/v1/quests?page=${page}`
+        );
+        if (response.data.length < pageSize) {
+          setHasMore(false);
         }
-        setLoading(false);
-      };
+        setQuests((prevQuests) => [...prevQuests, ...response.data]);
+      } catch (error) {
+        console.error("Error fetching quests:", error);
+      }
+      setLoading(false);
+    };
 
+    if (initialQuests.length === 0 || page > 1) {
       fetchQuests();
     }
-  }, [initialQuests.length]);
+  }, [page, initialQuests.length]);
 
   useEffect(() => {
-    const startIndex = (page - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    setDisplayedQuests(quests.slice(startIndex, endIndex));
-  }, [quests, page]);
+    if (observerRef.current) observerRef.current.disconnect();
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && hasMore && !loading) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+      }
+    );
+    if (containerRef.current) {
+      const lastElement = containerRef.current.lastElementChild;
+      if (lastElement) {
+        observerRef.current.observe(lastElement);
+      }
+    }
+    return () => observerRef.current?.disconnect();
+  }, [loading, hasMore, quests]);
 
-  const handlePageChange = (newPage: number) => {
-    setPage(newPage);
+  const loadMore = () => {
+    if (hasMore && !loading) {
+      setPage((prevPage) => prevPage + 1);
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col main text-white flex-grow">
       <Header pageName="Вибір квесту" />
       <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
-        <div className="mx-auto max-w-md flex flex-col gap-auto">
-          {displayedQuests.map((quest) => (
+        <div
+          ref={containerRef}
+          className="mx-auto max-w-md flex flex-col gap-[1rem] pb-16"
+        >
+          {quests.map((quest) => (
             <QuestCard key={quest.id} quest={quest} />
           ))}
-          {loading && <div className="text-center p-4">Loading...</div>}
-          <div className="text-center p-4 mx-8 gap-8 flex justify-center ">
-            <button
-              onClick={() => handlePageChange(page - 1)}
-              disabled={page === 1}
-              className="btn btn-primary flex-grow "
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => handlePageChange(page + 1)}
-              disabled={page === totalPages}
-              className="btn btn-primary flex-grow "
-            >
-              Next
-            </button>
-          </div>
+        </div>
+        <div className="p-4">
+          {loading && <div className="text-center p-4 spinner"></div>}
         </div>
       </div>
     </div>
