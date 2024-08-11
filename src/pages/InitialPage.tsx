@@ -18,16 +18,17 @@ const InitialPage: React.FC = () => {
   useEffect(() => {
     const verifyUser = async () => {
       const { initDataRaw } = retrieveLaunchParams();
-      console.log(initDataRaw);
 
       try {
-        console.log("initDataRaw", initDataRaw);
         const response = await fetch(
-          "https://e219-176-105-196-4.ngrok-free.app/api/auth",
+          // "https://9097-91-225-4-177.ngrok-free.app/api/v1/auth/",
+          "https://questbot.loca.lt/api/v1/auth",
           {
             method: "POST",
             headers: {
               Authorization: `tma ${initDataRaw}`,
+              // "ngrok-skip-browser-warning": "true",
+              "bypass-tunnel-reminder": true,
             },
           }
         );
@@ -51,7 +52,7 @@ const InitialPage: React.FC = () => {
 
     setTimeout(() => {
       verifyUser();
-    }, 5000);
+    }, 2000);
 
     // verifyUser();
   }, [navigate]);

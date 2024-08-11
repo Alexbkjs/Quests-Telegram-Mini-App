@@ -6,6 +6,7 @@ import "./App.css";
 import MainPage from "./pages/MainPage";
 import Quests from "./pages/Quests";
 import InitialPage from "./pages/InitialPage";
+import Profile from "./pages/Profile";
 
 const App: React.FC = () => {
   window.Telegram.WebApp.expand();
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/" element={<InitialPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/quests" element={<Quests />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

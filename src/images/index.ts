@@ -17,6 +17,10 @@ import routine from "../images/quests/routine.png";
 
 import loading_image from "./loading_image.webp";
 
+import profile_icon from "./profile/profile_icon.png";
+import padlock from "./profile/padlock.png";
+import broom from "./profile/broom.png";
+
 export {
   maze,
   inventory,
@@ -32,4 +36,7 @@ export {
   adventure,
   routine,
   loading_image,
+  profile_icon,
+  padlock,
+  broom,
 };
