@@ -1,20 +1,19 @@
-import { profile_icon } from "../images/index.ts";
+import { profile_icon, coins, score, level } from "../images/index.ts";
 
 export const UserInfo = () => {
   const profileData = {
-    className: "A1", // Example value, replace with actual data from backend
+    firstName: "Людмила",
+    lastName: "К.",
+    className: "Пригодник", // Example value, replace with actual data from backend
     level: 2,
     points: 238,
     coins: 520,
   };
 
   return (
-    <div className="flex flex-col items-center p-4 mx-auto w-full max-w-sm lg:max-w-md xl:max-w-lg flex-grow">
+    <div className="flex flex-col items-center mx-auto p-2 w-full max-w-[450px] flex-grow">
       {/* Profile Block with Relative Positioning */}
-      <div
-        className="relative w-full bg-[#fb9b07] rounded-lg"
-        style={{ height: "19.2vh", width: "87.2vw" }}
-      >
+      <div className="relative w-full bg-[#fb9b07] rounded-lg mt-1 mb-1">
         {/* Black Box Overlay - Top Left */}
         <div
           className="absolute -top-3 -left-3 transform rotate-0 bg-[#141415] z-10 rounded-2xl"
@@ -28,10 +27,7 @@ export const UserInfo = () => {
         ></div>
 
         {/* Content Inside Profile Block */}
-        <div
-          className="relative flex items-center justify-between p-4"
-          style={{ height: "100%" }}
-        >
+        <div className="relative flex items-center justify-between p-2 h-full">
           {/* Left Section */}
           <div className="flex items-center justify-center space-x-4 w-[50%] z-20 mt-4 mr-4">
             <div className="relative flex flex-col rounded-full">
@@ -40,31 +36,50 @@ export const UserInfo = () => {
                 alt="Profile"
                 className="rounded-full object-cover w-full h-full"
               />
-              <h2 className="text-black text-sm font-normal mt-2">Your Name</h2>
+              <h2 className="text-black text-sm font-normal">
+                {profileData.firstName + " " + profileData.lastName}
+              </h2>
             </div>
           </div>
 
           {/* Right Section */}
           <div className="flex flex-col w-[50%] space-y-2 z-20">
-            <div
-              className="text-black p-2 rounded-md flex justify-center items-center"
-              style={{ height: "5.2vh" }}
-            >
-              <span className="text-gray-600">Клас: </span>{" "}
-              {profileData.className}
+            <div className="text-black rounded-md flex justify-center items-center mb-2">
+              <span className="text-gray-600">Клас:</span>
+              <p className="ml-1">{profileData.className}</p>
             </div>
-            <div
-              className=" text-white p-4 rounded-md"
-              style={{ height: "12.1vh", width: "42.6vw" }}
-            >
-              <div className="flex items-center justify-between">
-                <span>Рівень:</span> <span>{profileData.level}</span>
+            <div className="text-white p-2 rounded-md w-full h-full">
+              {/* Row 1 */}
+              <div className="flex items-center justify-between mb-2 -mx-1 text-sm">
+                <div className="flex items-center text-gray-300">
+                  <img src={level} alt="Level Icon" className="w-6 h-6 mr-2" />
+                  <span>Рівень:</span>
+                </div>
+                <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
+                  {profileData.level}
+                </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Бали:</span> <span>{profileData.points}</span>
+
+              {/* Row 2 */}
+              <div className="flex items-center justify-between mb-2 text-sm text-gray-300 -mx-1">
+                <div className="flex items-center">
+                  <img src={score} alt="Points Icon" className="w-6 h-6 mr-2" />
+                  <span>Бали:</span>
+                </div>
+                <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
+                  {profileData.points}
+                </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Монети:</span> <span>{profileData.coins}</span>
+
+              {/* Row 3 */}
+              <div className="flex items-center justify-between text-sm text-gray-300 -mx-1">
+                <div className="flex items-center">
+                  <img src={coins} alt="Coins Icon" className="w-6 h-6 mr-2" />
+                  <span>Монети:</span>
+                </div>
+                <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
+                  {profileData.coins}
+                </span>
               </div>
             </div>
           </div>

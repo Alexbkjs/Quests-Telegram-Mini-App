@@ -1,3 +1,4 @@
+import BottomNavBar from "../components/BottomNavBar.tsx";
 import Header from "../components/Header";
 import ProfileInfoBlock from "../components/ProfileInfoBlock.tsx";
 import { UserInfo } from "../components/UserInfo.tsx";
@@ -7,27 +8,32 @@ const Profile: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col text-white bg-[#141415]">
       <Header pageName="Профіль" />
-      <UserInfo />
-      <ProfileInfoBlock
-        title="Achievements"
-        icons={[
-          { src: basic, isLocked: false },
-          { src: basic, isLocked: true },
-          { src: basic, isLocked: false },
-          { src: basic, isLocked: true },
-        ]}
-        dynamicText="Progress"
-      />
-      <ProfileInfoBlock
-        title="Achievements"
-        icons={[
-          { src: basic, isLocked: false },
-          { src: basic, isLocked: true },
-          { src: basic, isLocked: false },
-          { src: basic, isLocked: true },
-        ]}
-        dynamicText="Progress"
-      />
+      <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
+        <div className="mx-auto max-w-md">
+          <UserInfo />
+          <ProfileInfoBlock
+            title="Досягнення"
+            icons={[
+              { src: basic, isLocked: false },
+              { src: basic, isLocked: true },
+              { src: basic, isLocked: false },
+              { src: basic, isLocked: true },
+            ]}
+            dynamicText="Всі аватари"
+          />
+          <ProfileInfoBlock
+            title="Досягнення"
+            icons={[
+              { src: basic, isLocked: false },
+              { src: basic, isLocked: true },
+              { src: basic, isLocked: false },
+              { src: basic, isLocked: true },
+            ]}
+            dynamicText="Всі аватари"
+          />
+          <BottomNavBar />
+        </div>
+      </div>
     </div>
   );
 };

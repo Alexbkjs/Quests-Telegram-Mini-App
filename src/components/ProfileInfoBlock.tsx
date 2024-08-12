@@ -19,28 +19,45 @@ const ProfileInfoBlock: React.FC<ProfileInfoBlockProps> = ({
   dynamicText,
 }) => {
   return (
-    <div className="relative w-full p-16">
+    <div className="min-h-20 flex flex-col w-full p-1 gap-6 mt-2 text-white">
       {/* Title - Top Left */}
-      <div className="absolute top-0 left-0 m-2 text-l ">{title}</div>
+      <div className="text-l ">{title}</div>
 
-      {/* Main Content - Center, Display up to 4 Icons */}
-      <div className="flex justify-center items-center h-full gap-4">
+      {/* Main Content - Center, with Rounded Purple Borders */}
+      <div className="flex justify-center items-center gap-4">
         {icons.slice(0, 4).map((icon, index) => (
-          <div key={index} className="relative mx-2">
-            <img src={icon.src} alt={`icon-${index}`} className="w-10 h-10" />
+          <div
+            key={index}
+            className="relative p-[0.2rem] border-[0.05rem] border-purple-600 rounded-lg"
+          >
+            <img src={icon.src} alt={`icon-${index}`} />
             {icon.isLocked && (
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <img src={padlock} alt="locked" className="w-6 h-6" />
+              <div className="absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center rounded-lg">
+                <img src={padlock} alt="locked" className="w-full h-full" />
               </div>
             )}
           </div>
         ))}
       </div>
 
-      {/* Bottom Right - Dynamic Text and Broom Image */}
-      <div className="absolute bottom-0 right-0 flex flex-col items-center">
-        <span className="text-sm mr-8">{dynamicText}</span>
-        <img src={broom} alt="broom" className="h-full" />
+      <div className="relative flex justify-end items-center">
+        <button
+          className="relative w-24 h-6  text-white  rounded-full flex items-center justify-center overflow-hidden"
+          onClick={() => console.log("clicked")}
+          // Assuming you have a click handler function
+        >
+          {/* Broom Image - Positioned Diagonally */}
+          <img
+            src={broom}
+            alt="broom"
+            className="absolute inset-0 w-full h-full object-cover transform "
+          />
+
+          {/* Dynamic Text - Top Left Corner */}
+          <span className="absolute left-2 top-0 bottom-2 text-[0.6rem] font-light z-10 tracking-wider">
+            {dynamicText}
+          </span>
+        </button>
       </div>
     </div>
   );

@@ -21,6 +21,10 @@ import profile_icon from "./profile/profile_icon.png";
 import padlock from "./profile/padlock.png";
 import broom from "./profile/broom.png";
 
+import level from "./profile/level.png";
+import score from "./profile/score.png";
+import coins from "./profile/coins.png";
+
 export {
   maze,
   inventory,
@@ -39,4 +43,7 @@ export {
   profile_icon,
   padlock,
   broom,
+  level,
+  score,
+  coins,
 };

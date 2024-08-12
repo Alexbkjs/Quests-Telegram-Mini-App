@@ -78,7 +78,7 @@ const Quests: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col main text-white flex-grow">
-      <Header pageName="Вибір квесту" />
+      <Header pageName="Вибір квесту" className="mt-12" />
       <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
         <div
           ref={containerRef}

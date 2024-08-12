@@ -13,6 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({
   pageName,
   showSettingsIcon = false,
+  className,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -47,7 +48,9 @@ const Header: React.FC<HeaderProps> = ({
   }, [location.pathname, navigate, tma]);
 
   return (
-    <div className="relative flex mt-12 mb-auto items-center justify-center w-full max-w-lg mx-auto flex-grow">
+    <div
+      className={`${className} relative flex  mb-auto items-center justify-center w-full max-w-lg mx-auto mt-8`}
+    >
       {location.pathname !== "/" && (
         <button
           onClick={() => {
