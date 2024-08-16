@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import QuestCard from "../components/QuestCard";
 import axios from "axios";
 
-import "../App.css"; // Import the CSS for the spinner
+import "../styles/App.css"; // Import the CSS for the spinner
 
 interface Quest {
   id: number;
@@ -70,15 +70,9 @@ const Quests: React.FC = () => {
     return () => observerRef.current?.disconnect();
   }, [loading, hasMore, quests]);
 
-  const loadMore = () => {
-    if (hasMore && !loading) {
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col main text-white flex-grow">
-      <Header pageName="Вибір квесту" className="mt-12" />
+      <Header pageName="Вибір квесту" />
       <div className="w-full p-4 my-auto sm:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto flex-grow">
         <div
           ref={containerRef}

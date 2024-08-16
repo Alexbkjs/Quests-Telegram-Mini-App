@@ -9,7 +9,7 @@ import {
   quests,
   settings,
   academy,
-} from "../images";
+} from "../assets/images";
 
 // Define the type for a quest item
 interface Quest {

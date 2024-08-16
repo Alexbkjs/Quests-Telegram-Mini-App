@@ -1,4 +1,4 @@
-import StarIcon from "../icons/StarIcon";
+import StarIcon from "../assets/icons/StarIcon";
 
 interface QuestCardProps {
   quest: {

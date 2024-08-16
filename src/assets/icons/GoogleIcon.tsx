@@ -1,5 +1,5 @@
 import React from "react";
-import { IconProps } from "../utils/types";
+import { IconProps } from "../../utils/types";
 
 const GoogleIcon: React.FC<IconProps> = ({ size = 20, className = "" }) => {
   const svgSize = `${size}px`;

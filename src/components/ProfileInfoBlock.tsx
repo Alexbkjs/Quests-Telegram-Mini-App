@@ -1,6 +1,6 @@
 import React from "react";
-import { padlock } from "../images";
-import { broom } from "../images";
+import { padlock } from "../assets/images";
+import { broom } from "../assets/images";
 
 interface IconData {
   src: string;

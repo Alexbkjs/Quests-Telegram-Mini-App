@@ -1,5 +1,5 @@
 import React from "react";
-import { maze } from "../images/index";
+import { maze } from "../assets/images/index";
 import { Link } from "react-router-dom";
 import SocialButtons from "../components/SocialButtons";
 

@@ -1,8 +1,8 @@
-import BottomNavBar from "../components/BottomNavBar.tsx";
+import BottomNavBar from "../components/BottomNavBar";
 import Header from "../components/Header";
-import ProfileInfoBlock from "../components/ProfileInfoBlock.tsx";
-import { UserInfo } from "../components/UserInfo.tsx";
-import { basic } from "../images/index.ts";
+import ProfileInfoBlock from "../components/ProfileInfoBlock";
+import { UserInfo } from "../components/UserInfo";
+import { basic } from "../assets/images/index";
 
 const Profile: React.FC = () => {
   return (

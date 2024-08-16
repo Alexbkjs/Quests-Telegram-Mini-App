@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { retrieveLaunchParams } from "@telegram-apps/sdk";
 import { useNavigate } from "react-router-dom";
-import { loading_image } from "../images";
+import { loading_image } from "../assets/images";
 
 const InitialPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -13,25 +13,20 @@ const InitialPage: React.FC = () => {
   tma.isVerticalSwipesEnabled = true; // Disabling vertical swipes to go into bottom side pop-up
   tma.setHeaderColor("#011627"); // Changing the background of top and bottom side bars
 
-  console.log(tma.ready());
+  tma.ready();
 
   useEffect(() => {
     const verifyUser = async () => {
       const { initDataRaw } = retrieveLaunchParams();
 
       try {
-        const response = await fetch(
-          // "https://9097-91-225-4-177.ngrok-free.app/api/v1/auth/",
-          "https://questbot.loca.lt/api/v1/auth",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `tma ${initDataRaw}`,
-              // "ngrok-skip-browser-warning": "true",
-              "bypass-tunnel-reminder": true,
-            },
-          }
-        );
+        const response = await fetch("https://questbot.loca.lt/api/v1/auth", {
+          method: "POST",
+          headers: {
+            Authorization: `tma ${initDataRaw}`,
+            "bypass-tunnel-reminder": true,
+          },
+        });
 
         if (response.ok) {
           const data = await response.json();
@@ -52,7 +47,7 @@ const InitialPage: React.FC = () => {
 
     setTimeout(() => {
       verifyUser();
-    }, 2000);
+    }, 1000);
 
     // verifyUser();
   }, [navigate]);
@@ -72,13 +67,6 @@ const InitialPage: React.FC = () => {
       ) : (
         <div className="text-white font-bold">{title}</div>
       )}
-      <button
-        onClick={() => {
-          tma.close(() => console.log("Closed"));
-        }}
-      >
-        HELLLLLLLLLOLLLLLOOOOOOOOOO
-      </button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import {
   quests,
   settings,
   academy,
-} from "../images/index";
+} from "../assets/images/index";
 import { useNavigate } from "react-router-dom";
 
 const icons = [

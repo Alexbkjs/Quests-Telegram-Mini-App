@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "./Button";
-import GoogleIcon from "../icons/GoogleIcon";
-import FacebookIcon from "../icons/FacebookIcon";
-import AppleIcon from "../icons/AppleIcon";
+import GoogleIcon from "../assets/icons/GoogleIcon";
+import FacebookIcon from "../assets/icons/FacebookIcon";
+import AppleIcon from "../assets/icons/AppleIcon";
 
 const SocialButtons: React.FC = () => {
   const buttonConfigs = [

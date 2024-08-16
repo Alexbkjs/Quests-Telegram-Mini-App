@@ -1,4 +1,4 @@
-import { profile_icon, coins, score, level } from "../images/index.ts";
+import { profile_icon, coins, score, level } from "../assets/images/index.ts";
 
 export const UserInfo = () => {
   const profileData = {

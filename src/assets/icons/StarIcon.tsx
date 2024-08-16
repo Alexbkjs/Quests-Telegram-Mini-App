@@ -1,4 +1,4 @@
-import { IconProps } from "../utils/types";
+import { IconProps } from "../../utils/types";
 
 const StarIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => {
   const svgSize = `${size}px`;
