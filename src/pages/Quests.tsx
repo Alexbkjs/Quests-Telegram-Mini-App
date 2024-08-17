@@ -11,6 +11,7 @@ const Quests: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const { questsData, loading, error } = useFetchQuests(page);
+
   useEffect(() => {
     if (questsData.length < 3) {
       setHasMore(false);

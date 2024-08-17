@@ -1,4 +1,3 @@
-// pages/MainPage.tsx
 import React, { useMemo } from "react";
 import Header from "../components/Header";
 import MenuItem from "../components/MenuItem";
@@ -11,17 +10,8 @@ import {
   settings,
   academy,
 } from "../assets/images";
-import { useFetchQuests } from "../hooks/useFetchQuests";
-import Fallback from "../components/Fallback";
 
-// Define the type for an item in the menu
-interface MenuItemType {
-  title: string;
-  imageSrc: string;
-  path: string;
-}
-
-const items: MenuItemType[] = [
+const items = [
   { title: "Профіль", imageSrc: profile, path: "/profile" },
   { title: "Квести", imageSrc: quests, path: "/quests" },
   { title: "Академія", imageSrc: academy, path: "/academy" },
@@ -31,15 +21,9 @@ const items: MenuItemType[] = [
 ];
 
 const MainPage: React.FC = () => {
-  const pagesToLoad = 1;
-  const { questsData, loading, error } = useFetchQuests(pagesToLoad);
-
   const gradients = useMemo(() => {
     return items.map(() => generateRandomGradient());
   }, []);
-
-  if (loading) return <Fallback />;
-  if (error) return <div>{error}</div>;
 
   return (
     <div className="min-h-screen flex flex-col text-white flex-grow bg-[#141415]">
@@ -54,7 +38,6 @@ const MainPage: React.FC = () => {
                 imageSrc={item.imageSrc}
                 path={item.path}
                 gradient={gradients[index]}
-                questsData={questsData}
               />
             ))}
           </div>

@@ -1,14 +1,12 @@
 // components/MenuItem.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Quest } from "../utils/types"; // Adjust the import path as necessary
 
 interface MenuItemProps {
   title: string;
   imageSrc: string;
   path: string;
   gradient: string;
-  questsData: Quest[]; // Use the specific type here
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -16,12 +14,11 @@ const MenuItem: React.FC<MenuItemProps> = ({
   imageSrc,
   path,
   gradient,
-  questsData,
 }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(path, { state: { quests: questsData } });
+    navigate(path);
   };
 
   return (

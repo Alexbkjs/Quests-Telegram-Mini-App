@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserProfile, UserClassData } from "./types"; // Import types
+import { UserProfile, UserClassData } from "../utils/types"; // Import types
 
 // Define the base URL using the environment variable
 const BASE_URL = `${import.meta.env.VITE_APP_API_BASE_URL}/users`;

@@ -1,19 +1,18 @@
-// export default Header;
 import { useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faCog } from "@fortawesome/free-solid-svg-icons";
 
-// Props for the component
 interface HeaderProps {
   pageName: string;
   showSettingsIcon?: boolean;
+  className?: string; // Optional className prop
 }
 
 const Header: React.FC<HeaderProps> = ({
   pageName,
   showSettingsIcon = false,
-  className,
+  className = "", // Provide a default empty string
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,35 +20,24 @@ const Header: React.FC<HeaderProps> = ({
 
   useEffect(() => {
     if (tma) {
-      // Set the back button visibility based on the current page
-      if (location.pathname === "/main") {
-        tma.BackButton.isVisible = false; // Hide back button on the main page
-      } else {
-        tma.BackButton.isVisible = true; // Show back button on other pages
-      }
+      tma.BackButton.isVisible = location.pathname !== "/main";
 
-      // Function to handle the back button click
       const handleBackButtonClick = () => {
         if (location.pathname === "/") {
-          tma.close(); // Close the app on the main page
+          tma.close();
         } else {
-          navigate(-1); // Navigate back on other pages
+          navigate(-1);
         }
       };
 
-      // Set up the back button click handler
       tma.onEvent("backButtonClicked", handleBackButtonClick);
-
-      // Clean up event listener on component unmount
-      return () => {
-        tma.offEvent("backButtonClicked", handleBackButtonClick);
-      };
+      return () => tma.offEvent("backButtonClicked", handleBackButtonClick);
     }
   }, [location.pathname, navigate, tma]);
 
   return (
     <div
-      className={`${className} relative flex  mb-auto items-center justify-center w-full max-w-lg mx-auto mt-8`}
+      className={`${className} relative flex mb-auto items-center justify-center w-full max-w-lg mx-auto mt-8`}
     >
       {location.pathname !== "/" && (
         <button
@@ -59,10 +47,7 @@ const Header: React.FC<HeaderProps> = ({
           }}
           className="btn btn-ghost absolute left-0 ml-6"
         >
-          <>
-            <FontAwesomeIcon icon={faChevronLeft} size="lg" />
-            {console.log("button clicked")}
-          </>
+          <FontAwesomeIcon icon={faChevronLeft} size="lg" />
         </button>
       )}
       <h2 className="text-xl">{pageName}</h2>

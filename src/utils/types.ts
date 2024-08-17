@@ -33,8 +33,10 @@ export interface UserClassData {
   // Add other fields related to user class data
 }
 export interface Quest {
-  id: string;
-  title: string;
+  id: number;
+  imageUrl: string;
+  name: string;
   description: string;
-  // Add other relevant fields for a quest
+  award: string;
+  // Add any other properties your `Quest` type might have
 }
