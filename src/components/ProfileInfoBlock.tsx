@@ -43,7 +43,6 @@ const ProfileInfoBlock: React.FC<ProfileInfoBlockProps> = ({
       <div className="relative flex justify-end items-center">
         <button
           className="relative w-24 h-6  text-white  rounded-full flex items-center justify-center overflow-hidden"
-          onClick={() => console.log("clicked")}
           // Assuming you have a click handler function
         >
           {/* Broom Image - Positioned Diagonally */}

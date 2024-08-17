@@ -33,6 +33,7 @@ export {
   quests,
   settings,
   academy,
+  
   basic,
   miniBoss,
   team,

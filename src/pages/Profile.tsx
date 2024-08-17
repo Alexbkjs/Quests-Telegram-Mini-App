@@ -22,7 +22,7 @@ const Profile: React.FC = () => {
             dynamicText="Всі аватари"
           />
           <ProfileInfoBlock
-            title="Досягнення"
+            title="Активні квести"
             icons={[
               { src: basic, isLocked: false },
               { src: basic, isLocked: true },

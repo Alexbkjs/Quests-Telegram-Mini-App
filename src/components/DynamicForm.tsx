@@ -91,7 +91,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({
 
       <button
         type="submit"
-        className="btn rounded-xl w-full  py-3 mt-4 bg-gradient-to-r from-purple-700 to-purple-600 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
+        className="btn w-full  py-3 mt-4 bg-gradient-to-r from-purple-700 to-purple-600 text-white rounded-md border-2 border-[#6527a4] hover:bg-gradient-to-l"
       >
         {submitText}
       </button>
