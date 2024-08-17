@@ -44,7 +44,18 @@ To begin your journey with Quests, follow these steps:
     ```bash
     npm run dev
     ```
+5. **Expose the Development Server to get https URL. Use the URL, as the URL of your application in Telegram > BotFather**:
 
+    ```bash
+    ssh -R yourSubdomain:80:localhost:5173 serveo.net
+    ```
+6. **The app will not launch if the hash from initData signed by bot token on front end does not match the hash received on backend server. Make sure you have set up your bot token correctly on backend before performing validation**:
+
+5. **As an example, of backend server which is mostly used to server some static data and verify init can be use the repo below. The steps for installation are similiar. Just make sure to modify the subdomain and port before using ssh -R [SUBDOMAIN]:80:localhost:[PORT] serveo.net **:
+
+    ```bash
+    [ssh -R yourSubdomain:80:localhost:5173 serveo.net](https://github.com/Alexbkjs/express_vercel_backend)
+    ```
 ---
 
 ## ⚔️ Usage
