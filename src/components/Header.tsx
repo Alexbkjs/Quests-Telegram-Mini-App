@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({
     <div
       className={`${className} relative flex mb-auto items-center justify-center w-full max-w-lg mx-auto mt-8`}
     >
-      {location.pathname !== "/" && (
+      {location.pathname !== "/main" && (
         <button
           onClick={() => {
             tma.BackButton.onClick();
