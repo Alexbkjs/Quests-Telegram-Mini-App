@@ -11,11 +11,11 @@ interface QuestCardProps {
 
 const QuestCard: React.FC<QuestCardProps> = ({ quest }) => {
   return (
-    <div className="bg-transparent rounded-lg p-4 my-2 flex items-center">
-      <div className="w-1/3">
+    <div className=" bg-transparent rounded-lg p-3 my-4 flex items-center  ">
+      <div className="w-1/3 ">
         <img src={quest.imageUrl} alt={quest.name} className="rounded-lg" />
       </div>
-      <div className=" ml-4 w-2/3">
+      <div className=" ml-4 w-2/3 ">
         <div className="font-semibold mb-1">{quest.name}</div>
         <div className="text-[0.7rem] mb-2">{quest.description}</div>
         <div className="flex items-center">
