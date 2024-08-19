@@ -1,7 +1,49 @@
+// import StarIcon from "../assets/icons/StarIcon";
+
+// interface QuestCardProps {
+//   quest: {
+//     imageUrl: string;
+//     name: string;
+//     description: string;
+//     award: string;
+//   };
+// }
+
+// const QuestCard: React.FC<QuestCardProps> = ({ quest }) => {
+//   return (
+//     <div className=" bg-transparent rounded-lg p-3 my-4 flex items-center  ">
+//       <div className="w-1/3 ">
+//         <img src={quest.imageUrl} alt={quest.name} className="rounded-lg" />
+//       </div>
+//       <div className=" ml-4 w-2/3 ">
+//         <div className="font-semibold mb-1">{quest.name}</div>
+//         <div className="text-[0.7rem] mb-2">{quest.description}</div>
+//         <div className="flex items-center">
+//           <StarIcon className="star-icon w-4 h-4 mr-1" />
+//           <span className="text-[0.7rem]">{quest.award}</span>
+//         </div>
+//         <div className="mt-2 ">
+//           <button className=" button bg-purple-500 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold mr-2">
+//             Прийняти
+//           </button>
+//           <button className="button bg-gray-600 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold">
+//             Докладніше
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default QuestCard;
+
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import StarIcon from "../assets/icons/StarIcon";
 
 interface QuestCardProps {
   quest: {
+    id: number; // Ensure the quest object has an id
     imageUrl: string;
     name: string;
     description: string;
@@ -10,23 +52,39 @@ interface QuestCardProps {
 }
 
 const QuestCard: React.FC<QuestCardProps> = ({ quest }) => {
+  const navigate = useNavigate(); // Hook to handle navigation
+
+  const handleDetailsClick = () => {
+    navigate(`/quests/${quest.id}`); // Redirect to QuestDetails page with quest id
+  };
+
+  const handleAcceptClick = () => {
+    // Handle "Прийняти" button click
+  };
+
   return (
-    <div className=" bg-transparent rounded-lg p-3 my-4 flex items-center  ">
-      <div className="w-1/3 ">
+    <div className="bg-transparent rounded-lg p-3 my-4 flex items-center">
+      <div className="w-1/3">
         <img src={quest.imageUrl} alt={quest.name} className="rounded-lg" />
       </div>
-      <div className=" ml-4 w-2/3 ">
+      <div className="ml-4 w-2/3">
         <div className="font-semibold mb-1">{quest.name}</div>
         <div className="text-[0.7rem] mb-2">{quest.description}</div>
         <div className="flex items-center">
           <StarIcon className="star-icon w-4 h-4 mr-1" />
           <span className="text-[0.7rem]">{quest.award}</span>
         </div>
-        <div className="mt-2 ">
-          <button className=" button bg-purple-500 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold mr-2">
+        <div className="mt-2">
+          <button
+            className="button bg-purple-500 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold mr-2"
+            onClick={handleAcceptClick}
+          >
             Прийняти
           </button>
-          <button className="button bg-gray-600 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold">
+          <button
+            className="button bg-gray-600 text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold"
+            onClick={handleDetailsClick} // Add click handler for "Докладніше"
+          >
             Докладніше
           </button>
         </div>

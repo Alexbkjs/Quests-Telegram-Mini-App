@@ -9,6 +9,7 @@ const Academy = lazy(() => import("../pages/Academy"));
 const Inventory = lazy(() => import("../pages/Inventory"));
 const Leaderboard = lazy(() => import("../pages/Leaderboard"));
 const Settings = lazy(() => import("../pages/Settings"));
+const QuestDetails = lazy(() => import("../pages/QuestDetails"));
 
 const RoutesComponent = () => (
   <Routes>
@@ -20,6 +21,7 @@ const RoutesComponent = () => (
     <Route path="/inventory" element={<Inventory />} />
     <Route path="/leaderboard" element={<Leaderboard />} />
     <Route path="/settings" element={<Settings />} />
+    <Route path="/quests/:id" element={<QuestDetails />} />
   </Routes>
 );
 

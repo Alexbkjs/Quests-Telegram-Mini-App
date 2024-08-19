@@ -38,5 +38,8 @@ export interface Quest {
   name: string;
   description: string;
   award: string;
+  questDetails_goal: string;
+  questDetails_requirements: string[];
+  questDetails_rewards: string[];
   // Add any other properties your `Quest` type might have
 }
