@@ -25,6 +25,10 @@ import level from "./profile/level.png";
 import score from "./profile/score.png";
 import coins from "./profile/coins.png";
 
+import goal from "../images/quests/quest_details/goal.png";
+import requirements from "../images/quests/quest_details/requirements.png";
+import rewards from "../images/quests/quest_details/rewards.png";
+
 export {
   maze,
   inventory,
@@ -33,7 +37,6 @@ export {
   quests,
   settings,
   academy,
-  
   basic,
   miniBoss,
   team,
@@ -47,4 +50,7 @@ export {
   level,
   score,
   coins,
+  goal,
+  requirements,
+  rewards,
 };

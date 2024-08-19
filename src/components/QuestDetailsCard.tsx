@@ -12,11 +12,11 @@ const QuestDetailsCard: React.FC<QuestDetailsCardProps> = ({
   content,
 }) => {
   return (
-    <div className="flex items-center p-4 bg-[#1e1e1f] rounded-lg">
-      <div className="w-1/5 flex justify-center">{icon}</div>
-      <div className="w-4/5">
-        <h3 className="text-xl font-bold">{title}</h3>
-        {content}
+    <div className="flex items-center  bg-[#1d1d1f] rounded-lg">
+      <div className="w-2/6 flex justify-center">{icon}</div>
+      <div className="ml-6 w-4/6">
+        <h3 className="text-l font-semibold">{title}</h3>
+        <div className="text-xs mt-2">{content}</div>
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
 import QuestDetailsCard from "../components/QuestDetailsCard";
-import { FaFlag, FaTasks, FaGift } from "react-icons/fa";
 import useQuestDetails from "../hooks/useQuestDetails";
 import StatusMessage from "../components/StatusMessage"; // Import the StatusMessage component
 import Fallback from "../components/Fallback";
+import Icon from "../components/Icon";
+
+import { goal, requirements, rewards } from "../assets/images/index";
+import ButtonGradient from "../components/ButtonGradient";
 
 const QuestDetails: React.FC = () => {
   const { quest, loading, error } = useQuestDetails();
@@ -15,19 +18,27 @@ const QuestDetails: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col text-white bg-[#141415]">
-      <Header pageName="Деталі квесту" />
+      <Header pageName="Деталі квесту" className="mb-4 text-gray-300" />
       <main className="flex-grow p-6">
-        <h2 className="text-3xl font-bold mb-6">{quest.name}</h2>
+        <h2 className="text-xl font-bold mb-6 flex justify-center text-gray-200">
+          {quest.name}
+        </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           <QuestDetailsCard
-            icon={<FaFlag className="text-4xl text-yellow-500" />}
-            title="Мета"
-            content={<p>{quest.questDetails_goal}</p>}
+            icon={<Icon src={goal} className="text-4xl text-yellow-500" />}
+            title="Мета:"
+            content={
+              <>
+                <div className="mt-2">{quest.questDetails_goal}</div>
+              </>
+            }
           />
           <QuestDetailsCard
-            icon={<FaTasks className="text-4xl text-blue-500" />}
-            title="Вимоги"
+            icon={
+              <Icon src={requirements} className="text-4xl text-yellow-500" />
+            }
+            title="Вимоги:"
             content={
               <ul className="list-disc list-inside">
                 {quest.questDetails_requirements.map(
@@ -39,8 +50,8 @@ const QuestDetails: React.FC = () => {
             }
           />
           <QuestDetailsCard
-            icon={<FaGift className="text-4xl text-green-500" />}
-            title="Нагороди"
+            icon={<Icon src={rewards} className="text-4xl text-yellow-500" />}
+            title="Нагороди:"
             content={
               <ul className="list-disc list-inside">
                 {quest.questDetails_rewards.map(
@@ -54,9 +65,11 @@ const QuestDetails: React.FC = () => {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Почати квест
-          </button>
+          <ButtonGradient
+            text="Почати квест"
+            gradientColors="from-blue-500 to-purple-600"
+            size="py-3 px-6"
+          />
         </div>
       </main>
     </div>
