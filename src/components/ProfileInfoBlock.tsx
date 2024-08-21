@@ -30,7 +30,7 @@ const ProfileInfoBlock: React.FC<ProfileInfoBlockProps> = ({
             key={index}
             className="relative p-[0.2rem] border-[0.05rem] border-purple-600 rounded-lg"
           >
-            <img src={icon.src} alt={`icon-${index}`} />
+            <img className="w-16 h-16" src={icon.src} alt={`icon-${index}`} />
             {icon.isLocked && (
               <div className="absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center rounded-lg">
                 <img src={padlock} alt="locked" className="w-full h-full" />
@@ -53,7 +53,7 @@ const ProfileInfoBlock: React.FC<ProfileInfoBlockProps> = ({
           />
 
           {/* Dynamic Text - Top Left Corner */}
-          <span className="absolute left-2 top-0 bottom-2 text-[0.6rem] font-light z-10 tracking-wider">
+          <span className="absolute top-0 mr-4 bottom-2 text-[0.6rem] font-light z-10 tracking-wider">
             {dynamicText}
           </span>
         </button>

@@ -43,3 +43,27 @@ export interface Quest {
   questDetails_rewards: string[];
   // Add any other properties your `Quest` type might have
 }
+export interface Achievement {
+  id: number;
+  name: string;
+  description?: string; // Optional description of the achievement
+  isCompleted: boolean; // Whether the achievement has been completed
+}
+
+export interface ActiveQuest {
+  id: number;
+  name: string;
+  progress: number; // Progress of the quest, e.g., as a percentage (0-100)
+  isCompleted: boolean; // Whether the quest is completed
+}
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  className: string;
+  level: number;
+  points: number;
+  coins: number;
+  achievements: Achievement[];
+  active_quests: ActiveQuest[];
+}

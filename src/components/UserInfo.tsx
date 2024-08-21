@@ -1,15 +1,23 @@
 import { profile_icon, coins, score, level } from "../assets/images/index.ts";
+import { Achievement } from "../utils/types.ts";
+import { ActiveQuest } from "../utils/types.ts";
 
-export const UserInfo = () => {
-  const profileData = {
-    firstName: "Людмила",
-    lastName: "К.",
-    className: "Пригодник", // Example value, replace with actual data from backend
-    level: 2,
-    points: 238,
-    coins: 520,
+interface UserInfoProps {
+  user: {
+    firstName: string;
+    lastName: string;
+    class: string;
+    imageUrl: string;
+    level: number;
+    points: number;
+    coins: number;
+    achievements: Achievement[];
+    active_quests: ActiveQuest[];
+    // Add other user properties here
   };
+}
 
+export const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
   return (
     <div className="flex flex-col items-center mx-auto p-2 w-full max-w-[450px] flex-grow">
       {/* Profile Block with Relative Positioning */}
@@ -32,12 +40,12 @@ export const UserInfo = () => {
           <div className="flex items-center justify-center space-x-4 w-[50%] z-20 mt-4 mr-4">
             <div className="relative flex flex-col rounded-full">
               <img
-                src={profile_icon}
+                src={profile_icon || user.imageUrl}
                 alt="Profile"
                 className="rounded-full object-cover w-full h-full"
               />
               <h2 className="text-black text-sm font-normal">
-                {profileData.firstName + " " + profileData.lastName}
+                {user.firstName + " " + user.lastName[0] + "."}
               </h2>
             </div>
           </div>
@@ -46,17 +54,17 @@ export const UserInfo = () => {
           <div className="flex flex-col w-[50%] space-y-2 z-20">
             <div className="text-black rounded-md flex justify-center items-center mb-2">
               <span className="text-gray-600">Клас:</span>
-              <p className="ml-1">{profileData.className}</p>
+              <p className="ml-1">{user.class}</p>
             </div>
             <div className="text-white p-2 rounded-md w-full h-full">
               {/* Row 1 */}
               <div className="flex items-center justify-between mb-2 -mx-1 text-sm">
                 <div className="flex items-center text-gray-300">
                   <img src={level} alt="Level Icon" className="w-6 h-6 mr-2" />
-                  <span>Рівень:</span>
+                  <span>Рівень</span>
                 </div>
                 <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
-                  {profileData.level}
+                  {user.level}
                 </span>
               </div>
 
@@ -64,10 +72,10 @@ export const UserInfo = () => {
               <div className="flex items-center justify-between mb-2 text-sm text-gray-300 -mx-1">
                 <div className="flex items-center">
                   <img src={score} alt="Points Icon" className="w-6 h-6 mr-2" />
-                  <span>Бали:</span>
+                  <span>Бали</span>
                 </div>
                 <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
-                  {profileData.points}
+                  {user.points}
                 </span>
               </div>
 
@@ -75,10 +83,10 @@ export const UserInfo = () => {
               <div className="flex items-center justify-between text-sm text-gray-300 -mx-1">
                 <div className="flex items-center">
                   <img src={coins} alt="Coins Icon" className="w-6 h-6 mr-2" />
-                  <span>Монети:</span>
+                  <span>Монети</span>
                 </div>
                 <span className="bg-[#fb9b07] text-black px-2 text-center rounded-full flex-1 max-w-16">
-                  {profileData.coins}
+                  {user.coins}
                 </span>
               </div>
             </div>

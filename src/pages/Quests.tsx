@@ -64,13 +64,7 @@ const Quests: React.FC = () => {
         next={loadMoreData}
         hasMore={hasMore}
         loader={<Spinner />}
-        endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b className="text-blue-200 text-sm">
-              Ти переглянув усі квести!🎉🎉🎉
-            </b>
-          </p>
-        }
+        endMessage={<></>}
         // Trigger loading more items before reaching the end
         scrollThreshold={0.9} // Load when scrolled 90% down
       >
