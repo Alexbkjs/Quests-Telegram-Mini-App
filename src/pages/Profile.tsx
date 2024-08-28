@@ -5,6 +5,8 @@ import ProfileInfoBlock from "../components/ProfileInfoBlock";
 import { UserInfo } from "../components/UserInfo";
 // import { basic } from "../assets/images/index";
 import { useUser } from "../context/UserContext";
+import { BsExplicit } from "react-icons/bs";
+import { quests } from "../assets/images";
 
 const Profile: React.FC = () => {
   const { user } = useUser(); // Access user data from context
@@ -12,6 +14,8 @@ const Profile: React.FC = () => {
   if (!user) {
     return <div>Loading user data...</div>;
   }
+
+  console.log(user, "user from py back");
 
   // Map user's achievements and quests to the format expected by ProfileInfoBlock
   const achievementIcons = user.achievements.map((achievement) => ({
